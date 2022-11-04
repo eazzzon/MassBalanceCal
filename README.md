@@ -1,4 +1,4 @@
-# Mass Balance Calculation
+# Mass Balance Calculation for Petrology
 ## INFOS
 
 This repository stores the current avaiable mass balance algorithms for experimental petrology, with MCMC for propagating errors on phases and bulk compositions, including 
