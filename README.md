@@ -8,7 +8,7 @@ This repository stores the current avaiable mass balance algorithms for experime
 3) Matrix decomposition algorithm of [Li et al. (2020)](https://www.sciencedirect.com/science/article/pii/S0009281920300301?casa_token=frTdwy-tVF8AAAAA:z0pcHfcNB3LP4bGdEwWsgbzbauDBsoTKbbit5SnIiEH9htp6Y4zgRZjQttzSVGA34ZXiM-Sne45I). 
 4) Algorithm of [Albarede and Provost (1977)](https://www.sciencedirect.com/science/article/pii/0098300477900073)
 
-Please contact me at yishen.zhang@kuleuven.be for detailed using and instructions.
+Please contact me at yishen.zhang@kuleuven.be or create `issues`, add `PR` for bug reporting or contribution
 
 ## HOW TO USE?
 
