@@ -38,3 +38,22 @@ Three ways to run the scripts, see **PREPARATION** below for data preparation:
 2. If you only have one bulk composition, you can use `input_comp_oneBulk.xlsx`, or `input_comp.xlsx` but overwrite the bulk sheet.
 3. **DO NOT** change column names.
 4. **DO NOT** change the structure of the directory
+
+## HOW TO CITE?
+
+My paper using these methods is under review, but you may cite my [AGU abstract](https://ui.adsabs.harvard.edu/abs/2021AGUFM.V25C0119Z/abstract) as:
+
+Zhang Y, Namur O, Charlier B, 2020. Experimental liquid lines of descent and Silicate Liquid Immiscibility for low-Ti and high-Ti basalts of the Emeishan Large Igneous Province, SW China. AGU Fall Meeting 2021.
+
+Also need to cite the papers for these excellent algorithms:
+
+For non-negative algorithm:
+
+Lawson C., Hanson R.J., (1987) Solving Least Squares Problems, SIAM
+
+For matrix decomposition:
+
+Li, X., Zhang, C., Almeev, R.R. and Holtz, F., 2020. GeoBalance: An Excel VBA program for mass balance calculation in geosciences. *Geochemistry*, *80*(2), p.125629
+
+Ghiorso, M.S., 1983. LSEQIEQ: A FORTRAN IV subroutine package for the analysis of multiple linear regression problems with possibly deficient pseudorank and linear equality and inequality constraints. *Computers & Geosciences*, *9*(3), pp.391-416.
+
