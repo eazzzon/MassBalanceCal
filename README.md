@@ -1,7 +1,7 @@
 # Mass Balance Calculation
 ## INFOS
 
-This repository stores the current avaiable mass balance algorithms for experimental petrology, with MCMC for propagating errors on phases and bulk compositions, including 
+This repository stores the current avaiable mass balance algorithms for petrology, with MCMC for propagating errors on phases and bulk compositions, including 
 
 1) Non-negative least square algorithm
 2) Matrix decomposition algorithm of [Li et al. (2020)](https://www.sciencedirect.com/science/article/pii/S0009281920300301?casa_token=frTdwy-tVF8AAAAA:z0pcHfcNB3LP4bGdEwWsgbzbauDBsoTKbbit5SnIiEH9htp6Y4zgRZjQttzSVGA34ZXiM-Sne45I). 
