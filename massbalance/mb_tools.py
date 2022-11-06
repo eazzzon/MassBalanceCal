@@ -8,13 +8,7 @@ from numpy.linalg import svd
 
 def _norm_phases(comp_df, comp_col):
     """
-    Method doing normalization for compositional dataframe
-    :param comp_df: composition dataframe
-    :type comp_df: pd.Dataframe
-    :param cmpnts: input mass balance elements
-    :type cmpnts: list
-    :return: normalized compositional data
-    :rtype: pd.Dataframe
+    Normalization for compositional dataframe
     """
     norm_df = (
         100
@@ -37,7 +31,7 @@ def _dict_mass_balance(
     normalize=True,
 ):
     """
-    Method to parse dictionary data into compositions and stds
+    Method to parse pandas.ExcelFile into compositions and stds dictionary
 
     """
 
@@ -63,6 +57,9 @@ def _dict_mass_balance(
 
 
 def _svd_mb(phase, bulk):
+    """
+    svd solve for matrix
+    """
     list_idx = [
         idx for idx, x in enumerate(phase) if x.sum() > 0
     ]  # remove empty matrix, thus no phase composition
@@ -115,13 +112,26 @@ class MassBalance:
 
     Paramters:
     ---------------------
-    input_comp: input pandas ExcelFile
-    comp_col: element list of composition
-    comp_std_col: element std list of composition
-    match_column: Column saves your expts run no., sample id, or rock id.
-    bulk_sheet: sheet name of your bulk composition(s)
-    index_sheet: sheet name of your entire expts info, or sample id info, this should cover all run no. sample id in your calculation
-    normalize: choose if you want to normalize your data to 100 before mass balance calculation
+    input_comp : :class:`pandas.ExcelFile`
+        input pandas ExcelFile
+
+    comp_col : :class:`list`
+        element list of composition
+
+    comp_std_col : :class:`list`
+        element std list of composition
+
+    match_column : :class:`string`
+        Column saves your expts run no., sample id, or rock id.
+
+    bulk_sheet :class:`string`
+        sheet name of your bulk composition(s)
+
+    index_sheet :class:`string`
+        sheet name of your entire expts info, or sample id info, this should cover all run no. sample id in your calculation
+
+    normalize : :class:`boolean`
+        choose if you want to normalize your data to 100 before mass balance calculation
     """
 
     def __init__(
@@ -169,14 +179,23 @@ class MassBalance:
 
         Parameters:
         ---------------------
-        mc: Monte Carlo calculation numbers, default is None
-        exportFiles: Choose if you would like to export results in excel files
-        batch_bulk: Define if you have a batch bulk composition you want to match, or single one bulk comp, default is True
+        mc : :class:`float, int`
+            Monte Carlo calculation numbers, default is None
+        exportFiles: :class:`boolean`
+            Choose if you would like to export results in excel files
+        batch_bulk: :class:`boolean`
+            Define if you have a batch bulk composition you want to match, or single one bulk comp, default is True
+        method : :class:`string
+            Use 'nnl' as non-negative algrithom, 'svd' for matrix decomposition.
+
 
         Returns:
         ---------------------
-        res_dict: Dictionary stores mass balance results, each key saves each run no., sample id or rock id.
+        res_dict: :class:`dictionary`
+            Dictionary stores mass balance results, each key saves each run no., sample id or rock id.
         """
+
+
         prop_array = []  # collect phase proportions for all mc runs
         prop_r2 = (
             []

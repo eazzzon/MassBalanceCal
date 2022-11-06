@@ -5,7 +5,7 @@ This repository stores mass balance algorithms for petrology in general, with MC
 
 1) Non-negative least square algorithm
 2) Matrix decomposition algorithm of [Li et al. (2020)](https://www.sciencedirect.com/science/article/pii/S0009281920300301?casa_token=frTdwy-tVF8AAAAA:z0pcHfcNB3LP4bGdEwWsgbzbauDBsoTKbbit5SnIiEH9htp6Y4zgRZjQttzSVGA34ZXiM-Sne45I). 
-3) Algorithm of [Albarede and Provost (1977)](https://www.sciencedirect.com/science/article/pii/0098300477900073) (future update?)
+3) Algorithm of [Albarede and Provost (1977)](https://www.sciencedirect.com/science/article/pii/0098300477900073) (future update)
 
 Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug reporting, new feature requirement or contribution.
 
@@ -13,13 +13,13 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 1. [Download](https://github.com/eazzzon/MassBalanceCal/releases/tag/v0.1) or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
 
-2. Currently not plan to have a pip or conda installation, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main) from terminal like app (terminal in Mac, or Anaconda prompt in Win):
+2. No pip or conda installation is planned, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
    ```python
    pip install .
    ```
 
-3. If you don't want to install the module, you can still either run the scripts or notebook file within the example directory, or relative import the module before use:
+3. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
 
    ```python
    sys.path.append(filepath of massbalance folder in your system)
