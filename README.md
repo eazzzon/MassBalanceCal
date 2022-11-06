@@ -11,7 +11,7 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 ## INSTALLATION & USE
 
-1. [Download](https://github.com/eazzzon/MassBalanceCal/releases/tag/v0.1) or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
+1. [Download](https://github.com/eazzzon/MassBalanceCal/releases) or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
 
 2. No pip or conda installation is planned, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
