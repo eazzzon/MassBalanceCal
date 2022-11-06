@@ -62,7 +62,7 @@ def _dict_mass_balance(
     return exp_mb_dict, exp_mb_std
 
 
-def svd_mb(phase, exp_sc):
+def _svd_mb(phase, bulk):
     list_idx = [
         idx for idx, x in enumerate(phase) if x.sum() > 0
     ]  # remove empty matrix, thus no phase composition
@@ -83,7 +83,7 @@ def svd_mb(phase, exp_sc):
     a_matrix_plus = v.T.dot(
         sigma_fill.dot(u.T)
     )  # compute the pseudoinverse of matrix A
-    res = a_matrix_plus.dot(exp_sc)  # calculate proportions
+    res = a_matrix_plus.dot(bulk)  # calculate proportions
     empt_arr = np.zeros(
         len(phase)
     )  # create empty list with the same dimension as the number of phases
@@ -308,7 +308,7 @@ class MassBalance:
                                 np.random.normal(0, 1, len(self.comp_std_col))
                                 * self.bulk_comp[self.comp_std_col].iloc[i]
                             )
-                            phase_prop_iter = svd_mb(
+                            phase_prop_iter = _svd_mb(
                                 phases_matrix[i],
                                 bulk_std.values
                                 + self.bulk_comp[self.comp_col].iloc[i].values,
@@ -341,7 +341,7 @@ class MassBalance:
                                 np.random.normal(0, 1, len(self.comp_std_col))
                                 * self.bulk_comp[self.comp_std_col].values[0]
                             )
-                            phase_prop_iter = svd_mb(
+                            phase_prop_iter = _svd_mb(
                                 phases_matrix[i],
                                 bulk_std + self.bulk_comp[self.comp_col].values[0],
                             )
@@ -382,7 +382,7 @@ class MassBalance:
                 phase_prop_r = []  # collect r2 in each mc iteration
                 if batch_bulk:
                     for i in range(len(phases_matrix)):
-                        phase_prop_iter = svd_mb(
+                        phase_prop_iter = _svd_mb(
                             phases_matrix[i],
                             self.bulk_comp[self.comp_col].iloc[i].values,
                         )
@@ -407,7 +407,7 @@ class MassBalance:
                     prop_r2.append(phase_prop_r)
                 else:
                     for i in range(len(phases_matrix)):
-                        phase_prop_iter = svd_mb(
+                        phase_prop_iter = _svd_mb(
                             phases_matrix[i], self.bulk_comp[self.comp_col].values[0]
                         )
                         phase_prop_iter_r = np.sum(
