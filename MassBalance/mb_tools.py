@@ -96,13 +96,13 @@ def _exportFiles(restore_dict):
     # save results in output.xlsx, each sheet represents the results for each expt run, each run will have mc times mb calculation
     writer = pd.ExcelWriter("output.xlsx")
     for key in restore_dict:
-        restore_dict[key].to_excel(writer, sheet_name="run_no" + str(key))
+        restore_dict[key].to_excel(writer, sheet_name=str(key))
     writer.save()
 
     writer = pd.ExcelWriter("output_mean_median_std.xlsx")
     for key in restore_dict:
         restore_dict[key].agg(["mean", "median", "std"]).to_excel(
-            writer, sheet_name="run_no_" + str(key)
+            writer, sheet_name=str(key)
         )
     writer.save()
 

@@ -1,10 +1,10 @@
 # import python modules
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
-if not os.path.exists('MassBalance') and os.path.exists('../MassBalance'):    # hack to allow scripts to be placed in subdirectories next to pyAp
+import os, sys
+if not os.path.exists('massbalance') and os.path.exists('../massbalance'):    # hack to allow scripts to be placed in subdirectories next to pyAp
     sys.path.insert(1, os.path.abspath('..'))
-from MassBalance.mb_tools import MassBalance  # this is the core class of the mb calculation
+from massbalance.mb_tools import MassBalance  # this is the core class of the mb calculation
 
 """
 Script to run MC, with batch bulk compositions given
