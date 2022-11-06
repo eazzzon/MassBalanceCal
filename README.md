@@ -13,7 +13,7 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 1. First download or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
 
-2. Currently not plan to have a pip or conda installation, you can install by calling the `setup.py` file in the **unzipped downloaded directory** from terminal like app (terminal in Mac, or Anaconda prompt in Win):
+2. Currently not plan to have a pip or conda installation, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main) from terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
    ```python
    pip install .
