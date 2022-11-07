@@ -11,25 +11,27 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 ## INSTALLATION & USE
 
-1. [Download](https://github.com/eazzzon/MassBalanceCal/releases) or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
+1. Check the documentation page [here](https://massbalancecal.readthedocs.io/en/latest/)
 
-2. No pip or conda installation is planned, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
+2. [Download](https://github.com/eazzzon/MassBalanceCal/releases) or clone the github files, compile python environment  from [Anaconda for Win](https://docs.anaconda.com/anaconda/install/windows/), [Anaconda for Mac](https://docs.anaconda.com/anaconda/install/mac-os/), or [Miniforge](https://github.com/conda-forge/miniforge).
+
+3. No pip or conda installation is planned, you can install by calling the `setup.py` file in the **unzipped downloaded file** (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
    ```python
    pip install .
    ```
 
-3. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
+4. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
 
    ```python
    sys.path.append(filepath of massbalance folder in your system)
    ```
 
-4. To do the calculation, simply run the scripts or notebook file from IDEs (VS code, Spyder, Jupyterlab/Jupyter notebook). See **PREPARATION** first for data preparation.
+5. To do the calculation, simply run the scripts or notebook file from IDEs (VS code, Spyder, Jupyterlab/Jupyter notebook). See **PREPARATION** first for data preparation.
 
-5. Highly recommend to look through the tutorial notebook file (in the Tutorial directory), which gives general information of the code. Python scripts (example directory) are also avaiable covering examples for different cases.
+6. Highly recommend to look through the tutorial notebook file (in the Tutorial directory), which gives general information of the code. Python scripts (example directory) are also avaiable covering examples for different cases.
 
-6. Uninstallation as:
+7. Uninstallation as:
 
    ```python
    pip uninstall massbalance
