@@ -19,15 +19,28 @@ INSTALLATION & USE
 ##################
 1. No pip or conda installation is planned, you can install by calling the ``setup.py`` file in the unzipped downloaded file (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
-``pip install .``
+.. code-block:: python
+
+   pip install .
+
+or quicker install from the lastest github release (v0.1.7) as:
+
+.. code-block:: python
+
+   pip install git+https://github.com/eazzzon/MassBalanceCal.git@v0.1.7
+
 
 2. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
 
-``sys.path.append(filepath of massbalance folder in your system)``
+.. code-block:: python
+
+   sys.path.append(filepath of massbalance folder in your system)
 
 3. Uninstallatiion as:
 
-``pip uninstall massbalance``
+.. code-block:: python
+
+   pip uninstall massbalance
 
 DATA PREPARATION
 ##################
