@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Define elements for calculation &mdash; MassBalanceCal v0.1.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Tutorial" href="tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MassBalanceCal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Define elements for calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Load-data">2. Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-Mass-balance-calculation">3. Mass balance calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MassBalanceCal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="tutorials.html">Tutorial</a> &raquo;</li>
+      <li>1. Define elements for calculation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Tutorial.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<p>This notebook shows a general example mass balance calculations, we currentlt support two alghrithoms:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://epubs.siam.org/doi/pdf/10.1137/1.9781611971217.bm">Non-negative alghrithom</a>, it solves KKT (Karush-Kuhn-Tucker) conditions for the non-negative least squares problem</p></li>
+<li><p>Matrix decomposition, following <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0009281920300301?casa_token=sT59EIzD3QkAAAAA:bQSW0-dssOb6YRtOMb-69ctkXC0BzW5_zlalxk4EV2GFwhm4apnk73tsq4TKVc4vipPyIImq8Twg">Li et al. (2020)</a> and <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0098300483900080">Ghiorso 1983</a>. The compositional matrix will be broken down by singular value decomposition, the coefficients will then calculated.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import python modules</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">massbalance.mb_tools</span> <span class="kn">import</span> <span class="n">MassBalance</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="1.-Define-elements-for-calculation">
+<h1>1. Define elements for calculation<a class="headerlink" href="#1.-Define-elements-for-calculation" title="Permalink to this headline"></a></h1>
+<p>We first need to define element list for mass balance calculation, special attention goes to <code class="docutils literal notranslate"><span class="pre">FeO</span></code> term, which we use <code class="docutils literal notranslate"><span class="pre">FeO</span></code>, not <code class="docutils literal notranslate"><span class="pre">FeOt</span></code> nor <code class="docutils literal notranslate"><span class="pre">FeOtot</span></code>, this is consistent with the input excel files. Feel free to change the order of the elements</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmpnts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SiO2&#39;</span><span class="p">,</span><span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span> <span class="s1">&#39;TiO2&#39;</span><span class="p">,</span> <span class="s1">&#39;MgO&#39;</span><span class="p">,</span> <span class="s1">&#39;FeO&#39;</span><span class="p">,</span> <span class="s1">&#39;MnO&#39;</span><span class="p">,</span>  <span class="s1">&#39;CaO&#39;</span><span class="p">,</span> <span class="s1">&#39;Na2O&#39;</span><span class="p">,</span> <span class="s1">&#39;K2O&#39;</span><span class="p">,</span> <span class="s1">&#39;P2O5&#39;</span><span class="p">,</span> <span class="s1">&#39;Cr2O3&#39;</span><span class="p">]</span>  <span class="c1"># change your desired elements for mass balance calculation</span>
+</pre></div>
+</div>
+</div>
+<p>if you also want to integrate standard deviation on elements, this can be done manually or by the following line</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmpnts_std</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;_std&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cmpnts</span><span class="p">]</span>  <span class="c1"># save columns for std</span>
+<span class="n">cmpnts_std</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;SiO2_std&#39;,
+ &#39;Al2O3_std&#39;,
+ &#39;TiO2_std&#39;,
+ &#39;MgO_std&#39;,
+ &#39;FeO_std&#39;,
+ &#39;MnO_std&#39;,
+ &#39;CaO_std&#39;,
+ &#39;Na2O_std&#39;,
+ &#39;K2O_std&#39;,
+ &#39;P2O5_std&#39;,
+ &#39;Cr2O3_std&#39;]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="2.-Load-data">
+<h1>2. Load data<a class="headerlink" href="#2.-Load-data" title="Permalink to this headline"></a></h1>
+<p>The easist way is to copy paste data in the input excel file, please also check README file for details of data prepration</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_comp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s2">&quot;input_comp.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We load the whole excel spreadsheet to a pandas ExcelFile, to access data in your spreadsheet, you can do so by looping through ExcelFile to a dictionary:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_dict</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># create dictionary to collect compositions of different phases</span>
+<span class="n">nat_phases</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># create list to save all phases in the calculation. Note bulk will be the bulk compsition, run_index will be your sample number, or rock id . etc</span>
+<span class="k">for</span> <span class="n">sheet_name</span> <span class="ow">in</span> <span class="n">nat_comp</span><span class="o">.</span><span class="n">sheet_names</span><span class="p">:</span>
+    <span class="n">nat_phases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sheet_name</span><span class="p">)</span>
+    <span class="n">nat_dict</span><span class="p">[</span><span class="n">sheet_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">nat_comp</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sheet_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nat_phases</span></code> stores the sheet names, <code class="docutils literal notranslate"><span class="pre">nat_dict</span></code> stores the data of each sheet.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_phases</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;gl&#39;, &#39;ol&#39;, &#39;sp&#39;, &#39;py&#39;, &#39;pureFe&#39;, &#39;pureNa&#39;, &#39;bulk&#39;, &#39;run_index&#39;]
+</pre></div></div>
+</div>
+<p>Use the sheet name to access data, let’s what we have in the <code class="docutils literal notranslate"><span class="pre">gl</span></code> phase</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_dict</span><span class="p">[</span><span class="s1">&#39;gl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Run_no</th>
+      <th>SiO2</th>
+      <th>Al2O3</th>
+      <th>P2O5</th>
+      <th>CaO</th>
+      <th>FeO</th>
+      <th>Na2O</th>
+      <th>MgO</th>
+      <th>TiO2</th>
+      <th>K2O</th>
+      <th>...</th>
+      <th>Al2O3_std</th>
+      <th>P2O5_std</th>
+      <th>CaO_std</th>
+      <th>FeO_std</th>
+      <th>Na2O_std</th>
+      <th>MgO_std</th>
+      <th>TiO2_std</th>
+      <th>K2O_std</th>
+      <th>MnO_std</th>
+      <th>Cr2O3_std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>02As1</td>
+      <td>46.66</td>
+      <td>10.16</td>
+      <td>0.17</td>
+      <td>11.64</td>
+      <td>13.06</td>
+      <td>1.95</td>
+      <td>13.15</td>
+      <td>2.43</td>
+      <td>0.49</td>
+      <td>...</td>
+      <td>0.17</td>
+      <td>0.10</td>
+      <td>0.22</td>
+      <td>0.34</td>
+      <td>0.10</td>
+      <td>0.26</td>
+      <td>0.20</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01As1</td>
+      <td>46.96</td>
+      <td>10.34</td>
+      <td>0.20</td>
+      <td>11.81</td>
+      <td>13.21</td>
+      <td>1.84</td>
+      <td>12.16</td>
+      <td>2.53</td>
+      <td>0.44</td>
+      <td>...</td>
+      <td>0.11</td>
+      <td>0.07</td>
+      <td>0.20</td>
+      <td>0.21</td>
+      <td>0.10</td>
+      <td>0.12</td>
+      <td>0.14</td>
+      <td>0.05</td>
+      <td>0.03</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>04As1</td>
+      <td>47.20</td>
+      <td>10.80</td>
+      <td>0.23</td>
+      <td>12.13</td>
+      <td>12.77</td>
+      <td>1.87</td>
+      <td>11.04</td>
+      <td>2.65</td>
+      <td>0.48</td>
+      <td>...</td>
+      <td>0.11</td>
+      <td>0.05</td>
+      <td>0.21</td>
+      <td>0.45</td>
+      <td>0.14</td>
+      <td>0.09</td>
+      <td>0.16</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>03As1</td>
+      <td>48.38</td>
+      <td>11.36</td>
+      <td>0.18</td>
+      <td>12.63</td>
+      <td>13.03</td>
+      <td>1.42</td>
+      <td>10.35</td>
+      <td>2.54</td>
+      <td>0.43</td>
+      <td>...</td>
+      <td>0.16</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>0.27</td>
+      <td>0.07</td>
+      <td>0.19</td>
+      <td>0.27</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>05As1</td>
+      <td>47.18</td>
+      <td>11.63</td>
+      <td>0.23</td>
+      <td>12.84</td>
+      <td>12.57</td>
+      <td>2.04</td>
+      <td>9.42</td>
+      <td>2.60</td>
+      <td>0.51</td>
+      <td>...</td>
+      <td>0.12</td>
+      <td>0.05</td>
+      <td>0.25</td>
+      <td>0.20</td>
+      <td>0.12</td>
+      <td>0.18</td>
+      <td>0.23</td>
+      <td>0.05</td>
+      <td>0.04</td>
+      <td>0.05</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div>
+</div>
+<p>we use <code class="docutils literal notranslate"><span class="pre">run_index</span></code> sheet to store all runs we wish to perform mass balance with, we can check by doing:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_dict</span><span class="p">[</span><span class="s1">&#39;run_index&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Run_no</th>
+      <th>T_C</th>
+      <th>fO2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>02As1</td>
+      <td>1320</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01As1</td>
+      <td>1302</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>04As1</td>
+      <td>1280</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>03As1</td>
+      <td>1260</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>05As1</td>
+      <td>1240</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>06As1</td>
+      <td>1200</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>15As1</td>
+      <td>1180</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>17As1</td>
+      <td>1170</td>
+      <td>QFM</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>14As1</td>
+      <td>1160</td>
+      <td>QFM</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="3.-Mass-balance-calculation">
+<h1>3. Mass balance calculation<a class="headerlink" href="#3.-Mass-balance-calculation" title="Permalink to this headline"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">MassBalance</span></code> class does the core calculation. To start the calculation, we need to define the <code class="docutils literal notranslate"><span class="pre">MassBalance</span></code> class by passing all necessary infos for calculations: 1. <code class="docutils literal notranslate"><span class="pre">input_comp</span></code> – load the ExcelFile variable 2. <code class="docutils literal notranslate"><span class="pre">comp_col</span></code> – load element list 3. <code class="docutils literal notranslate"><span class="pre">comp_std_col</span></code> – load element std list (if avaiable), default is <code class="docutils literal notranslate"><span class="pre">None</span></code> 4. <code class="docutils literal notranslate"><span class="pre">match_column</span></code> – this is the column name that saves your expts run no., sample no., or rock id. in each spreadsheet 5. <code class="docutils literal notranslate"><span class="pre">bulk_sheet</span></code> – sheet name of which saves
+bulk composition(s) 6. <code class="docutils literal notranslate"><span class="pre">index_sheet</span></code> – sheet name stores entire infos about expts run numbers ± condition, sample numbers or rock id. 7. <code class="docutils literal notranslate"><span class="pre">normalize</span></code> – normalize your data to 100 during calculation, default is <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb_cal</span> <span class="o">=</span> <span class="n">MassBalance</span><span class="p">(</span>
+    <span class="n">input_comp</span><span class="o">=</span><span class="n">nat_comp</span><span class="p">,</span>
+    <span class="n">comp_col</span><span class="o">=</span><span class="n">cmpnts</span><span class="p">,</span>
+    <span class="n">comp_std_col</span><span class="o">=</span><span class="n">cmpnts_std</span><span class="p">,</span>
+    <span class="n">match_column</span><span class="o">=</span><span class="s2">&quot;Run_no&quot;</span><span class="p">,</span>
+    <span class="n">bulk_sheet</span><span class="o">=</span><span class="s2">&quot;bulk&quot;</span><span class="p">,</span>
+    <span class="n">index_sheet</span><span class="o">=</span><span class="s2">&quot;run_index&quot;</span><span class="p">,</span>
+    <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mb_cal</span></code> is a variable we create for mass balance calculation The calculation is done by calling the compute method in the <code class="docutils literal notranslate"><span class="pre">MassBalance</span></code> class as <code class="docutils literal notranslate"><span class="pre">mb_cal.compute()</span></code> Four parameters can be tuned during computing: 1. <code class="docutils literal notranslate"><span class="pre">mc</span></code> – define the number of MC calculations, the default is None, which will be a one time calculation 2. <code class="docutils literal notranslate"><span class="pre">exportFiles</span></code> – we can export the results to excel file <code class="docutils literal notranslate"><span class="pre">output.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">output_mean_median_std.xlsx</span></code>. If <code class="docutils literal notranslate"><span class="pre">mc</span></code> is given, <code class="docutils literal notranslate"><span class="pre">output_mean_median_std.xlsx</span></code>stores
+statistical infos for mc results 3. <code class="docutils literal notranslate"><span class="pre">batch_bulk</span></code>: define if you have different bulk for each group of phases, this is useful for layers in layered intrusions or expts with variable starting compositions for different runs. If you only have one bulk composition, can turn it to <code class="docutils literal notranslate"><span class="pre">False</span></code> 4. <code class="docutils literal notranslate"><span class="pre">method</span></code>: use <code class="docutils literal notranslate"><span class="pre">nnl</span></code> for non-negative method, <code class="docutils literal notranslate"><span class="pre">svd</span></code> for matrix decomposition method</p>
+<p>Below we give examples to perform 100 times MC calculation with non-negative method, export files, and we have pre-defined a batch bulk composition in the input file. More examples are given in the python scipt along with this code</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_dict</span> <span class="o">=</span> <span class="n">mb_cal</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">mc</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">exportFiles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_bulk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nnl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The result is saved in a python dictionary, with each key responses to the expts run no., sample no, or rock id you defined in the index sheet Let’s take a look the results of first experimental run <code class="docutils literal notranslate"><span class="pre">02As1</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_02As1</span> <span class="o">=</span> <span class="n">res_dict</span><span class="p">[</span><span class="s1">&#39;02As1&#39;</span><span class="p">]</span>
+<span class="n">res_02As1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gl</th>
+      <th>ol</th>
+      <th>sp</th>
+      <th>py</th>
+      <th>pureFe</th>
+      <th>pureNa</th>
+      <th>r2</th>
+      <th>residues</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.980309</td>
+      <td>0.025299</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000665</td>
+      <td>0.318216</td>
+      <td>0.101261</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.959695</td>
+      <td>0.031032</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.001112</td>
+      <td>1.174406</td>
+      <td>1.379230</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.979235</td>
+      <td>0.019375</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.002412</td>
+      <td>1.023295</td>
+      <td>1.047133</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.981838</td>
+      <td>0.011746</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.001503</td>
+      <td>0.629961</td>
+      <td>0.396851</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.968629</td>
+      <td>0.035022</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000457</td>
+      <td>0.707438</td>
+      <td>0.500469</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>0.981687</td>
+      <td>0.022148</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.030632</td>
+      <td>1.062203</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>0.980176</td>
+      <td>0.015765</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.661183</td>
+      <td>0.437163</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>0.980972</td>
+      <td>0.025854</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.001035</td>
+      <td>0.950629</td>
+      <td>0.903696</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>0.974249</td>
+      <td>0.021821</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000774</td>
+      <td>1.953085</td>
+      <td>3.814540</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>0.993793</td>
+      <td>0.003956</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.733781</td>
+      <td>0.538435</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 8 columns</p>
+</div></div>
+</div>
+<p>This is the MC results (100 times), to calculate statistical infos, you can simply call the built-in pandas functions as:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_02As1</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gl</th>
+      <th>ol</th>
+      <th>sp</th>
+      <th>py</th>
+      <th>pureFe</th>
+      <th>pureNa</th>
+      <th>r2</th>
+      <th>residues</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.981366</td>
+      <td>0.020590</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000010</td>
+      <td>0.000551</td>
+      <td>0.876400</td>
+      <td>0.870697</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.009831</td>
+      <td>0.007873</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000092</td>
+      <td>0.000666</td>
+      <td>0.321958</td>
+      <td>0.630622</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.957179</td>
+      <td>0.000337</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.275481</td>
+      <td>0.075890</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.976014</td>
+      <td>0.015349</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.663642</td>
+      <td>0.440423</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.981365</td>
+      <td>0.020979</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000344</td>
+      <td>0.812141</td>
+      <td>0.660398</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.985775</td>
+      <td>0.025433</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000914</td>
+      <td>1.063028</td>
+      <td>1.130062</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.012758</td>
+      <td>0.042551</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000910</td>
+      <td>0.002896</td>
+      <td>1.953085</td>
+      <td>3.814540</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>or only interested parameters</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_02As1</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gl</th>
+      <th>ol</th>
+      <th>sp</th>
+      <th>py</th>
+      <th>pureFe</th>
+      <th>pureNa</th>
+      <th>r2</th>
+      <th>residues</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>0.981366</td>
+      <td>0.020590</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000010</td>
+      <td>0.000551</td>
+      <td>0.876400</td>
+      <td>0.870697</td>
+    </tr>
+    <tr>
+      <th>median</th>
+      <td>0.981365</td>
+      <td>0.020979</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000344</td>
+      <td>0.812141</td>
+      <td>0.660398</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.009831</td>
+      <td>0.007873</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000092</td>
+      <td>0.000666</td>
+      <td>0.321958</td>
+      <td>0.630622</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>To plot the result, you can simply do:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;gl&#39;</span><span class="p">],</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;ol&#39;</span><span class="p">],</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;gl&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/Tutorial_31_0.png" src="_images/Tutorial_31_0.png" />
+</div>
+</div>
+<p>We pre-defined pure FeO and pure Na2O phases as the evaluation of Fe loss and Na loss, if you don’t want to check this, simply delete these sheets Below we give an example to calculate Fe loss (%) and Na loss (%) in the first experimental run <code class="docutils literal notranslate"><span class="pre">02As1</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_bulk</span> <span class="o">=</span> <span class="n">nat_dict</span><span class="p">[</span><span class="s1">&#39;bulk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Run_no&#39;</span><span class="p">)</span>
+<span class="n">nat_bulk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;02As1&#39;</span><span class="p">,</span> <span class="s1">&#39;FeO&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+12.42
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nat_bulk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;02As1&#39;</span><span class="p">,</span> <span class="s1">&#39;Na2O&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.96
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;Fe_loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;pureFe&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">nat_bulk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;02As1&#39;</span><span class="p">,</span> <span class="s1">&#39;FeO&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;Fe_loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mean      0.008275
+median    0.000000
+std       0.073758
+Name: Fe_loss, dtype: float64
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;Na2O_loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;pureNa&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">nat_bulk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;02As1&#39;</span><span class="p">,</span> <span class="s1">&#39;Na2O&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">res_02As1</span><span class="p">[</span><span class="s1">&#39;Na2O_loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mean      2.813345
+median    1.756814
+std       3.398196
+Name: Na2O_loss, dtype: float64
+</pre></div></div>
+</div>
+<p>Fin ~ happy coding!</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yishen Zhang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

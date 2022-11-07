@@ -1,0 +1,6 @@
+pandas
+numpy 
+scipy
+ipykernel
+nbsphinx
+myst_parser
