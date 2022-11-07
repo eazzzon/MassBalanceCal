@@ -200,7 +200,7 @@ class MassBalance:
         prop_r2 = (
             []
         )  # collect r2 for all mc runs, note r2**2, which is the normalized r2 is the residuals
-        run_numbers = len(self.exp_mb_dict["gl"])  # save your run numbers
+        run_numbers = len(self.match_index)  # save your run numbers
         res_dict = {}
         restore_dict = {}
         if (method != "nnl") and (method != "svd"):
