@@ -21,10 +21,10 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
    pip install .
    ```
 
-   or quicker install from the latest github release (v0.1.7):
+   or quicker install from the github repo url:
 
    ```python
-   pip install git+https://github.com/eazzzon/MassBalanceCal.git@v0.1.7
+   pip install "git+https://github.com/eazzzon/MassBalanceCal.git"
    ```
 
 4. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:

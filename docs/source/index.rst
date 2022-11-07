@@ -23,11 +23,11 @@ INSTALLATION & USE
 
    pip install .
 
-or quicker install from the latest github release (v0.1.7) as:
+or quicker install from the github repo url as:
 
 .. code-block:: python
 
-   pip install git+https://github.com/eazzzon/MassBalanceCal.git@v0.1.7
+   pip install "git+https://github.com/eazzzon/MassBalanceCal.git"
 
 
 2. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
