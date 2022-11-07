@@ -23,7 +23,7 @@ INSTALLATION & USE
 
    pip install .
 
-or quicker install from the lastest github release (v0.1.7) as:
+or quicker install from the latest github release (v0.1.7) as:
 
 .. code-block:: python
 

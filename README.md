@@ -21,7 +21,7 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
    pip install .
    ```
 
-   or quicker install from the lasted github release (v0.1.7):
+   or quicker install from the latest github release (v0.1.7):
 
    ```python
    pip install git+https://github.com/eazzzon/MassBalanceCal.git@v0.1.7
