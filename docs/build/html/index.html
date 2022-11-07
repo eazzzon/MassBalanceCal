@@ -109,12 +109,27 @@
 </div>
 <div class="section" id="installation-use">
 <h2>INSTALLATION &amp; USE<a class="headerlink" href="#installation-use" title="Permalink to this headline"></a></h2>
-<p>No pip or conda installation is planned, you can install by calling the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file in the unzipped downloaded file (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):</p>
+<ol class="arabic simple">
+<li><p>No pip or conda installation is planned, you can install by calling the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file in the unzipped downloaded file (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):</p></li>
+</ol>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
-<p>If you don’t want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:</p>
+<ol class="arabic simple" start="2">
+<li><p>If you don’t want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:</p></li>
+</ol>
 <p><code class="docutils literal notranslate"><span class="pre">sys.path.append(filepath</span> <span class="pre">of</span> <span class="pre">massbalance</span> <span class="pre">folder</span> <span class="pre">in</span> <span class="pre">your</span> <span class="pre">system)</span></code></p>
-<p>Uninstallatiion as:</p>
+<ol class="arabic simple" start="3">
+<li><p>Uninstallatiion as:</p></li>
+</ol>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">massbalance</span></code></p>
+</div>
+<div class="section" id="data-preparation">
+<h2>DATA PREPARATION<a class="headerlink" href="#data-preparation" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Load your phase compositions in the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">excel</span> <span class="pre">files</span></code>, use sheets store different phases, free to change sheet names and orders <strong>BUT NOT</strong> <code class="docutils literal notranslate"><span class="pre">bulk</span></code> and <code class="docutils literal notranslate"><span class="pre">run_index</span></code> sheets (they should always stay as the last two), <code class="docutils literal notranslate"><span class="pre">bulk</span></code> sheet should give the bulk composition(s), <code class="docutils literal notranslate"><span class="pre">run_index</span></code> should give the entire experimental run numbers ± expts conditions, sample numbers or rock ids for natural samples, which are then used for indexing and matching during calculation.</p></li>
+<li><p>If you only have one bulk composition, you can use <cite>input_comp_oneBulk.xlsx</cite>, or <cite>input_comp.xlsx</cite> but overwrite the bulk sheet.</p></li>
+<li><p>If you change the element in the header, you should also change the definition of element list in the script for consistency.</p></li>
+<li><p>If you didn’t install the module, <strong>DO NOT</strong> change the structure of the directory.</p></li>
+</ol>
 </div>
 </div>
 <div class="section" id="indices-and-tables">

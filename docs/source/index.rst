@@ -17,17 +17,28 @@ Welcome to MassBalanceCal's documentation!
 
 INSTALLATION & USE
 ##################
-No pip or conda installation is planned, you can install by calling the ``setup.py`` file in the unzipped downloaded file (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
+1. No pip or conda installation is planned, you can install by calling the ``setup.py`` file in the unzipped downloaded file (directory name supposedly as MassBalanceCal-main). Run the line below in any terminal like app (terminal in Mac, or Anaconda prompt in Win):
 
 ``pip install .``
 
-If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
+2. If you don't want to install the module, you can still either run the scripts/notebook file within the example directory, or relative import the module as:
 
 ``sys.path.append(filepath of massbalance folder in your system)``
 
-Uninstallatiion as:
+3. Uninstallatiion as:
 
 ``pip uninstall massbalance``
+
+DATA PREPARATION
+##################
+
+1. Load your phase compositions in the ``input excel files``, use sheets store different phases, free to change sheet names and orders **BUT NOT** ``bulk`` and ``run_index`` sheets (they should always stay as the last two), ``bulk`` sheet should give the bulk composition(s), ``run_index`` should give the entire experimental run numbers ± expts conditions, sample numbers or rock ids for natural samples, which are then used for indexing and matching during calculation.
+
+2. If you only have one bulk composition, you can use `input_comp_oneBulk.xlsx`, or `input_comp.xlsx` but overwrite the bulk sheet.
+
+3. If you change the element in the header, you should also change the definition of element list in the script for consistency.
+
+4. If you didn't install the module, **DO NOT** change the structure of the directory.
 
 
 Indices and tables
