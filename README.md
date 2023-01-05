@@ -59,7 +59,7 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 My paper using these methods is under review, but you may cite my [AGU abstract](https://ui.adsabs.harvard.edu/abs/2021AGUFM.V25C0119Z/abstract) as:
 
--- Zhang Y, Namur O, Charlier B, 2020. Experimental liquid lines of descent and Silicate Liquid Immiscibility for low-Ti and high-Ti basalts of the Emeishan Large Igneous Province, SW China. AGU Fall Meeting 2021.
+-- Zhang Y, Namur O, Charlier B, 2023. Experimental study of high-Ti and low-Ti basalts: liquid lines of descent and silicate liquid immiscibility in large igneous provinces. Contrib. Mineral. Petrol. 178:7. https://doi.org/10.1007/s00410-022-01990-x
 
 Also need to cite the papers for these excellent algorithms:
 
