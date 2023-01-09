@@ -59,7 +59,7 @@ Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug rep
 
 You may cite the code as:
 
--- Zhang Y, Namur O, Charlier B, 2023. Experimental study of high-Ti and low-Ti basalts: liquid lines of descent and silicate liquid immiscibility in large igneous provinces. Contrib. Mineral. Petrol. 178:7. https://doi.org/10.1007/s00410-022-01990-x
+-- Zhang Y, Namur O, Charlier B, 2023. Experimental study of high-Ti and low-Ti basalts: liquid lines of descent and silicate liquid immiscibility in large igneous provinces. Contrib. Mineral. Petrol. 178(1):1-24. https://doi.org/10.1007/s00410-022-01990-x
 
 Also need to cite the papers for these excellent algorithms:
 
