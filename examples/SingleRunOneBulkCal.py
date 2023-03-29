@@ -22,6 +22,6 @@ mb_cal = MassBalance(
     index_sheet="run_index",
     normalize=True,
 )
-res_dict = mb_cal.compute(mc=None, exportFiles=True, batch_bulk=None, method='nnl')
+res_dict = mb_cal.compute(mc=None, exportFiles=True, filename='singleRunOneBulk', batch_bulk=None, method='nnl')
 
 print('Calculations complete!')

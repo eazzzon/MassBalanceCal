@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="massbalance",
-    version="v0.1",
+    version="v0.2",
     author="Yishen Zhang",
     author_email="yishen.zhang@kuleuven.be",
     packages= setuptools.find_packages(
