@@ -88,17 +88,17 @@ def _svd_mb(phase, bulk):
     return empt_arr
 
 
-def _exportFiles(restore_dict):
+def _exportFiles(restore_dict, filename = 'output'):
     """
     export files to xlsx
     """
     # save results in output.xlsx, each sheet represents the results for each expt run, each run will have mc times mb calculation
-    writer = pd.ExcelWriter("output.xlsx")
+    writer = pd.ExcelWriter(filename+".xlsx")
     for key in restore_dict:
         restore_dict[key].to_excel(writer, sheet_name=str(key))
     writer.save()
 
-    writer = pd.ExcelWriter("output_mean_median_std.xlsx")
+    writer = pd.ExcelWriter(filename+"_mean_median_std.xlsx")
     for key in restore_dict:
         restore_dict[key].agg(["mean", "median", "std"]).to_excel(
             writer, sheet_name=str(key)
@@ -173,7 +173,7 @@ class MassBalance:
             normalize=normalize,
         )
 
-    def compute(self, mc=None, exportFiles=True, batch_bulk=True, method="nnl"):
+    def compute(self, mc=None, exportFiles=True, filename='output', batch_bulk=True, method="nnl"):
         """
         Non-negative algrithom for mass balance calculation.
 
@@ -299,7 +299,7 @@ class MassBalance:
             ):
                 res_dict[key] = val
             if exportFiles:
-                _exportFiles(res_dict)
+                _exportFiles(res_dict, filename)
             # return res_dict
 
         elif method == "svd":
@@ -462,5 +462,5 @@ class MassBalance:
             ):
                 res_dict[key] = val
             if exportFiles:
-                _exportFiles(res_dict)
+                _exportFiles(res_dict, filename)
         return res_dict
