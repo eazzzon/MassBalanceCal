@@ -96,14 +96,14 @@ def _exportFiles(restore_dict, filename = 'output'):
     writer = pd.ExcelWriter(filename+".xlsx")
     for key in restore_dict:
         restore_dict[key].to_excel(writer, sheet_name=str(key))
-    writer.save()
+    writer.close()
 
     writer = pd.ExcelWriter(filename+"_mean_median_std.xlsx")
     for key in restore_dict:
         restore_dict[key].agg(["mean", "median", "std"]).to_excel(
             writer, sheet_name=str(key)
         )
-    writer.save()
+    writer.close()
 
 
 class MassBalance:
