@@ -48,7 +48,7 @@ def _dict_mass_balance(
             else:
                 pass
         else:
-            exp_mb_dict[val] = match_phase
+            exp_mb_dict[val] = match_phase[comp_col].fillna(0)
             if comp_std_col:
                 exp_mb_std[val] = match_phase[comp_std_col].fillna(0)
             else:
