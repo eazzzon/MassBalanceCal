@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/eazzzon/MassBalanceCal",
     packages= setuptools.find_packages(
-        exclude= ['example', 'benchmark', 'Tutorial']
+        # exclude= ['example', 'benchmark', 'Tutorial']
         ),
 
 
