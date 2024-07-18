@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Define elements for calculation &mdash; MassBalanceCal v0.1.4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0636b7af"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -28,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> MassBalanceCal
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MassBalanceCal
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,9 +71,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="tutorials.html">Tutorial</a> &raquo;</li>
-      <li>1. Define elements for calculation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorial</a></li>
+      <li class="breadcrumb-item active">1. Define elements for calculation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Tutorial.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -361,8 +369,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="1.-Define-elements-for-calculation">
-<h1>1. Define elements for calculation<a class="headerlink" href="#1.-Define-elements-for-calculation" title="Permalink to this headline"></a></h1>
+<section id="1.-Define-elements-for-calculation">
+<h1>1. Define elements for calculation<a class="headerlink" href="#1.-Define-elements-for-calculation" title="Link to this heading"></a></h1>
 <p>We first need to define element list for mass balance calculation, special attention goes to <code class="docutils literal notranslate"><span class="pre">FeO</span></code> term, which we use <code class="docutils literal notranslate"><span class="pre">FeO</span></code>, not <code class="docutils literal notranslate"><span class="pre">FeOt</span></code> nor <code class="docutils literal notranslate"><span class="pre">FeOtot</span></code>, this is consistent with the input excel files. Feel free to change the order of the elements</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -401,9 +409,9 @@ div.rendered_html tbody tr:hover {
  &#39;Cr2O3_std&#39;]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="2.-Load-data">
-<h1>2. Load data<a class="headerlink" href="#2.-Load-data" title="Permalink to this headline"></a></h1>
+</section>
+<section id="2.-Load-data">
+<h1>2. Load data<a class="headerlink" href="#2.-Load-data" title="Link to this heading"></a></h1>
 <p>The easist way is to copy paste data in the input excel file, please also check README file for details of data prepration</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -721,9 +729,9 @@ div.rendered_html tbody tr:hover {
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="3.-Mass-balance-calculation-with-MCMC-progagting-errors">
-<h1>3. Mass balance calculation with MCMC progagting errors<a class="headerlink" href="#3.-Mass-balance-calculation-with-MCMC-progagting-errors" title="Permalink to this headline"></a></h1>
+</section>
+<section id="3.-Mass-balance-calculation-with-MCMC-progagting-errors">
+<h1>3. Mass balance calculation with MCMC progagting errors<a class="headerlink" href="#3.-Mass-balance-calculation-with-MCMC-progagting-errors" title="Link to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">MassBalance</span></code> class does the core calculation. To start the calculation, we need to define the <code class="docutils literal notranslate"><span class="pre">MassBalance</span></code> class by passing all necessary infos for calculations: 1. <code class="docutils literal notranslate"><span class="pre">input_comp</span></code> – load the ExcelFile variable 2. <code class="docutils literal notranslate"><span class="pre">comp_col</span></code> – load element list 3. <code class="docutils literal notranslate"><span class="pre">comp_std_col</span></code> – load element std list (if avaiable), default is <code class="docutils literal notranslate"><span class="pre">None</span></code> 4. <code class="docutils literal notranslate"><span class="pre">match_column</span></code> – this is the column name that saves your expts run no., sample no., or rock id. in each spreadsheet 5. <code class="docutils literal notranslate"><span class="pre">bulk_sheet</span></code> – sheet name of which saves
 bulk composition(s) 6. <code class="docutils literal notranslate"><span class="pre">index_sheet</span></code> – sheet name stores entire infos about expts run numbers ± condition, sample numbers or rock id. 7. <code class="docutils literal notranslate"><span class="pre">normalize</span></code> – normalize your data to 100 during calculation, default is <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 <div class="nbinput nblast docutils container">
@@ -1238,7 +1246,7 @@ Name: Na2O_loss, dtype: float64
 </pre></div></div>
 </div>
 <p>Fin ~ happy coding!</p>
-</div>
+</section>
 
 
            </div>
