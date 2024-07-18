@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="massbalance",
-    version="v0.2",
+    version="0.2",  # Normalized version number
     author="Yishen Zhang",
     author_email="yishen.zhang@rice.edu",
     long_description=long_description,
