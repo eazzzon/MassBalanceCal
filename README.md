@@ -1,13 +1,13 @@
 # Mass Balance Calculation for Petrology
 ## INFORMATION
 
-This repository stores mass balance algorithms for petrology in general, with MCMC for propagating errors on phases and bulk compositions, including: 
+This repository stores mass balance algorithms for petrology in general, with MC for propagating errors on phases and bulk compositions, including: 
 
 1) Non-negative least square algorithm
 2) Matrix decomposition algorithm of [Li et al. (2020)](https://www.sciencedirect.com/science/article/pii/S0009281920300301?casa_token=frTdwy-tVF8AAAAA:z0pcHfcNB3LP4bGdEwWsgbzbauDBsoTKbbit5SnIiEH9htp6Y4zgRZjQttzSVGA34ZXiM-Sne45I). 
 3) Algorithm of [Albarede and Provost (1977)](https://www.sciencedirect.com/science/article/pii/0098300477900073) (future update)
 
-Please contact me at yishen.zhang@kuleuven.be or drop `issue`,  `PR` for bug reporting, new feature requirement or contribution.
+Please contact me at yishen.zhang@rice.edu or drop `issue`,  `PR` for bug reporting, new feature requirement or contribution.
 
 ## INSTALLATION & USE
 
